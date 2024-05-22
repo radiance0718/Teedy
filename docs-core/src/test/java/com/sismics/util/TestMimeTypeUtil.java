@@ -66,6 +66,10 @@ public class TestMimeTypeUtil {
 
         // Detect MP4 files
         path = Paths.get(ClassLoader.getSystemResource("file/video.mp4").toURI());
-        Assert.assertEquals(MimeType.VIDEO_MP4, MimeTypeUtil.guessMimeType(path, "video.mp4"));
+        Assert.assertEquals(MimeType.VIDEO_MP4, MimeTypeUtil.guessMimeType(path, "video.mp4"));;
+
+        // Detect unknown files
+        path = Paths.get(ClassLoader.getSystemResource("file/unknown.unknown").toURI());
+        Assert.assertEquals(MimeType.DEFAULT, MimeTypeUtil.guessMimeType(path, "unknown.unknown"));
     }
 }
